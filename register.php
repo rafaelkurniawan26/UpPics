@@ -120,7 +120,7 @@ if (isset($_POST['Submit'])) {
         <br>
         <label for="" id="label">Email</label>
         <br>
-        <input type="text" name="email" id="input" required>
+        <input type="email" name="email" id="input" required>
         <br>
         <label for="" id="label">Password</label>
         <br>
