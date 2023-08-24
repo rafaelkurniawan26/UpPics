@@ -42,8 +42,11 @@ if (isset($_POST['Submit'])) {
             exit;
         }
 
-        $query = "SELECT * FROM users WHERE email = '$email'";
-        $result = mysqli_query($connect, $query);
+        $query = "SELECT * FROM users WHERE email = ?";
+        $stmt = mysqli_prepare($connect, $query);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         if (mysqli_num_rows($result) > 0) {
             echo '<script>
@@ -67,8 +70,11 @@ if (isset($_POST['Submit'])) {
             echo "Error: " . mysqli_error($connect);
         }
     } elseif ($selectedRole === 'user') {
-        $query = "SELECT * FROM users WHERE email = '$email'";
-        $result = mysqli_query($connect, $query);
+        $query = "SELECT * FROM users WHERE email = ?";
+        $stmt = mysqli_prepare($connect, $query);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         if (mysqli_num_rows($result) > 0) {
             echo '<script>
