@@ -80,7 +80,7 @@ $images = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editor Dashboard</title>
+    <title>Admin Dashboard</title>
 </head>
 <body>
     <h1>Admin Dashboard</h1>
