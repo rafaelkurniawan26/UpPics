@@ -52,6 +52,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <li>
                 <p>Email: <?php echo $user['email']; ?></p>
                 <p>Role: <?php echo $user['role']; ?></p>
+                <?php if ($_SESSION['role'] === 'admin' && $user['email'] !== 'admin@gmail.com') : ?>
                 <form method="POST">
                     <input type="hidden" name="userId" value="<?php echo $user['id']; ?>">
                     <select name="newRole">
@@ -61,12 +62,14 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </select>
                     <button type="submit" name="changeRole">Change Role</button>
                 </form>
+                <?php endif; ?>
                 <br>
+                <?php if ($user['email'] !== 'admin@gmail.com') : ?>
                 <form method="POST">
                     <input type="hidden" name="userId" value="<?php echo $user['id']; ?>">
                     <button type="submit" name="deleteUser">Delete</button>
                 </form>
-               
+                <?php endif; ?>
                 <br>
             </li>
         <?php endforeach; ?>
@@ -75,3 +78,4 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <a href="admin.php">Admin Dashboard</a>
 </body>
 </html>
+
