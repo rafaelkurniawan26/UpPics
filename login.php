@@ -59,7 +59,7 @@ if (isset($_POST['Login'])) {
     <form method="POST">
         <label for="email" id="label">Email</label>
         <br>
-        <input type="text" name="email" id="input" required>
+        <input type="email" name="email" id="input" required>
         <br>
         <label for="password" id="label">Password</label>
         <br>
